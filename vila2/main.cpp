@@ -9,39 +9,39 @@ int max_left = 1, max_right = 0, min_left = 1, min_right = 0;
 
 int main()
 {
-  in >> n >> k;
+    in >> n >> k;
 
-  for (int i = 1; i <= n; i++)
-    in >> v[i];
+    for (int i = 1; i <= n; i++)
+        in >> v[i];
 
-  for (int i = 1; i <= n; i++)
-  {
-    while (max_left <= max_right && v[i] >= v[max_deque[max_right]])
-      max_right--;
+    for (int i = 1; i <= n; i++)
+    {
+        while (max_left <= max_right && v[i] >= v[max_deque[max_right]])
+            max_right--;
 
-    while (min_left <= min_right && v[i] <= v[min_deque[min_right]])
-      min_right--;
+        while (min_left <= min_right && v[i] <= v[min_deque[min_right]])
+            min_right--;
 
-    max_right++;
-    max_deque[max_right] = i;
+        max_right++;
+        max_deque[max_right] = i;
 
-    min_right++;
-    min_deque[min_right] = i;
+        min_right++;
+        min_deque[min_right] = i;
 
-    if (max_deque[max_left] == i - (k + 1))
-      max_left++;
+        if (max_deque[max_left] == i - (k + 1))
+            max_left++;
 
-    if (min_deque[min_left] == i - (k + 1))
-      min_left++;
+        if (min_deque[min_left] == i - (k + 1))
+            min_left++;
 
-    if (i >= k)
-      spatiu = std::max(spatiu, v[max_deque[max_left]] - v[min_deque[min_left]]);
-  }
+        if (i >= k)
+            spatiu = std::max(spatiu, v[max_deque[max_left]] - v[min_deque[min_left]]);
+    }
 
-  out << spatiu << '\n';
+    out << spatiu << '\n';
 
-  in.close();
-  out.close();
+    in.close();
+    out.close();
 
-  return 0;
+    return 0;
 }

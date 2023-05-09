@@ -1,5 +1,6 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
+
 
 std::ifstream in("deque.in");
 std::ofstream out("deque.out");
@@ -8,30 +9,30 @@ long int suma = 0;
 
 int main()
 {
-  in >> n >> k;
+    in >> n >> k;
 
-  for (int i = 1; i <= n; i++)
-    in >> v[i];
+    for (int i = 1; i <= n; i++)
+        in >> v[i];
 
-  for (int i = 1; i <= n; i++)
-  {
-    while (left <= right && v[i] <= v[deque[right]])
-      right--;
+    for (int i = 1; i <= n; i++)
+    {
+        while (left <= right && v[i] <= v[deque[right]])
+            right--;
 
-    right++;
-    deque[right] = i;
+        right++;
+        deque[right] = i;
 
-    if (deque[left] == i - k)
-      left++;
+        if (deque[left] == i - k)
+            left++;
 
-    if (i >= k)
-      suma += v[deque[left]];
-  }
+        if (i >= k)
+            suma += v[deque[left]];
+    }
 
-  out << suma << '\n';
+    out << suma << '\n';
 
-  in.close();
-  out.close();
+    in.close();
+    out.close();
 
-  return 0;
+    return 0;
 }
