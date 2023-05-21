@@ -36,5 +36,8 @@ int main()
         out << stiva[i];
     }
 
+    in.close();
+    out.close();
+
     return 0;
 }

@@ -62,5 +62,8 @@ int main()
     }
     out << max_len;
 
+    in.close();
+    out.close();
+
     return 0;
 }

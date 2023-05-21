@@ -34,5 +34,8 @@ int main()
     k += nr / 2;
     out << k;
 
+    in.close();
+    out.close();
+
     return 0;
 }

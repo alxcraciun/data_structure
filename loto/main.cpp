@@ -43,5 +43,8 @@ int main()
     if (found == false)
         out << "-1";
 
+    in.close();
+    out.close();
+
     return 0;
 }
